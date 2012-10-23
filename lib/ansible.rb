@@ -33,6 +33,7 @@ require 'ansible/config'
 # note: I would like to convert this to ansible/device
 require 'ansible/ansible_device'
 require 'ansible/transceiver'
+require 'ansible/ansible_value'
 
 # ansible extensions
 require 'ansible/knx'
