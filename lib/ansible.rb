@@ -22,20 +22,23 @@ for more information on the LGPL, see:
 http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
 =end
 
+# ruby core
 require "rubygems"
 require "bundler/setup"
-require 'config'
+require 'onstomp'
+require 'thrift'
 
-require 'transceiver'
-require 'zwave_transceiver'
-require 'zwave_command_classes'
+# ansible core
+require 'ansible/config'
+# note: I would like to convert this to ansible/device
+require 'ansible/ansible_device'
+require 'ansible/transceiver'
 
-require 'knx_transceiver'
-require 'knx_tools'
-require 'knx_value'
+# ansible extensions
+require 'ansible/knx'
+require 'ansible/zwave'
 
-require 'ansible_device'
-
+# include all
 include Ansible
 include Ansible::ZWave
 include Ansible::KNX

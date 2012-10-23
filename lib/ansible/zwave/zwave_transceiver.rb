@@ -22,14 +22,8 @@ for more information on the LGPL, see:
 http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
 =end
 
-require 'rubygems'
-require 'onstomp'
-require 'thrift'
-
-require 'config'
-require 'zwave_protocol'
-require 'zwave_value'
-require 'transceiver'
+require 'ansible/zwave/zwave_protocol'
+require 'ansible/zwave/zwave_value'
 
 module Ansible
 

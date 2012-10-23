@@ -22,8 +22,6 @@ for more information on the LGPL, see:
 http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
 =end
 
-require 'config'
-
 # a generic Rexegp to parse C/C++ enums, must substitute %s in-place with enumeration name
 ENUM_RE = %q(.* 
     enum \s* %s \s* 
@@ -72,9 +70,7 @@ module OpenZWave
     ControllerStates = parse_ozw_headers( File.join(OZW_SRC, "Driver.h"), "ControllerState" )
     ValueGenres = parse_ozw_headers( File.join(OZW_SRC, "value_classes", "ValueID.h"), "ValueGenre" )
     ValueTypes = parse_ozw_headers( File.join(OZW_SRC, "value_classes", "ValueID.h"), "ValueType" )
-    
+        
 end
     
-
-#CommandClassesByID defined in zwave_command_classes.rb
-
+# CommandClassesByID defined in zwave_command_classes.rb

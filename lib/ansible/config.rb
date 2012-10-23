@@ -27,9 +27,13 @@ http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
 #
 
 module Ansible
-        
+
+    def self.root
+      File.expand_path '../..', __FILE__
+    end
+
     # STOMP Server URL
-    STOMP_URL = 'stomp://192.168.10.14'
+    STOMP_URL = 'stomp://localhost'
     
     #
     # KNX subsystem configuration
@@ -73,8 +77,7 @@ module Ansible
 
         #################        
         # OpenZWave Thrift Server URL
-        THRIFT_URL = 'thrift://192.168.10.14'
-        #THRIFT_URL = 'thrift://192.168.0.100'
+        THRIFT_URL = 'thrift://localhost'
 
         ThriftPort = 9090
     
@@ -87,6 +90,6 @@ end
 module OpenZWave
     
     # path to OpenZWave source
-    OZW_SRC = "lib/ansible/openzwave/src"
+    OZW_SRC = "#{Ansible.root}/ansible/zwave/openzwave/src"
 
 end

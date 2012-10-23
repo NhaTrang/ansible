@@ -1,0 +1,1 @@
+require 'ansible/zwave/zwave_transceiver'

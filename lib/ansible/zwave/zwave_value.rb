@@ -23,16 +23,12 @@ http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
 =end
 
 # load thrift-generated code
-require 'thrift'
-require 'ozw_constants'
-require 'ozw_headers'
-require "ozw_remote_manager"
+require 'ansible/zwave/openzwave/ozw_constants'
+require 'ansible/zwave/openzwave/ozw_headers'
+require "ansible/zwave/openzwave/ozw_remote_manager"
 
-require 'ansible_value'
-require 'ansible_callback'
-
-require 'zwave_protocol'
-require 'zwave_command_classes'
+require 'ansible/ansible_value'
+require 'ansible/zwave/zwave_command_classes'
 
 module Ansible
 
@@ -186,7 +182,7 @@ module Ansible
         
         #
         # load all known ZWave type modules
-        Dir["lib/ansible/zwave/types/*.rb"].each { |f| load f }
+        Dir["#{Ansible.root}/ansible/zwave/openzwave/types/*.rb"].each { |f| load f }
         
     end #module ZWave
     

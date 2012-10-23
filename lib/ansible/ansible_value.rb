@@ -22,7 +22,7 @@ for more information on the LGPL, see:
 http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
 =end
 
-require 'ansible_callback'
+require 'ansible/ansible_callback'
 
 module Ansible
     
