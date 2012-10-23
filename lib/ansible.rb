@@ -22,12 +22,6 @@ for more information on the LGPL, see:
 http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
 =end
 
-$:.push(File.join(Dir.getwd, 'lib/ansible'))
-$:.push(File.join(Dir.getwd, 'lib/ansible/devices'))
-$:.push(File.join(Dir.getwd, 'lib/ansible/knx'))
-$:.push(File.join(Dir.getwd, 'lib/ansible/openzwave'))
-$:.push(File.join(Dir.getwd, 'lib/ansible/zwave'))
-
 require "rubygems"
 require "bundler/setup"
 require 'config'
