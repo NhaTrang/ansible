@@ -29,7 +29,7 @@ http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
 module Ansible
         
     # STOMP Server URL
-    STOMP_URL = 'stomp://localhost'
+    STOMP_URL = 'stomp://192.168.10.14'
     
     #
     # KNX subsystem configuration
@@ -51,6 +51,7 @@ module Ansible
         #   header "dest_addr" => KNX destination address (group/phys) in 16-bit unsigned integer format i.e. "1024" meaning "1/0/0" in 3-level fmt
         #   body => the raw APDU for transmission (command flags+data) in Marshal.dump(CGI.escape()) format
         KNX_COMMAND_TOPIC = "/queue/knx/command"
+    
     end
     
     #
@@ -72,11 +73,11 @@ module Ansible
 
         #################        
         # OpenZWave Thrift Server URL
-        THRIFT_URL = 'thrift://localhost'
+        THRIFT_URL = 'thrift://192.168.10.14'
         #THRIFT_URL = 'thrift://192.168.0.100'
 
         ThriftPort = 9090
-
+    
     end
     
 end
@@ -86,9 +87,6 @@ end
 module OpenZWave
     
     # path to OpenZWave source
-    OZW_SRC = "/home/ekarak/ozw/open-zwave-read-only/cpp/src"
-    
-    # include Thrift RemoteManager interface files
-    $:.push("/home/ekarak/ozw/Thrift4OZW/gen-rb")
+    OZW_SRC = "lib/ansible/openzwave/src"
 
 end
