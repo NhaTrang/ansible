@@ -59,10 +59,9 @@ module Ansible
         end
         
     end
-        
-    
+            
     #
     # load all known Ansible Device classes
-    Dir["devices/*.rb"].reverse.each { |f| load f }
+    Dir["#{Ansible.root}/ansible/devices/*.rb"].reverse.each { |f| load f }
 
 end
