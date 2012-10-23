@@ -134,7 +134,7 @@ module Ansible
                 return(false) unless respond_to? :read_operation
                 result = @@transceiver.manager_send(read_operation, self)
                 if result and result.retval then
-                    puts "#{self}.read_value() result == #{result.o_value}, Refreshed=#{RefreshedNodes[@_nodeId]}"
+                    puts "#{Time.now} #{self}.read_value() result == #{result.o_value}, Refreshed=#{RefreshedNodes[@_nodeId]}"
                     update(result.o_value)
                     return(true)
                 else
@@ -159,12 +159,12 @@ module Ansible
         
             # return a reasonable string representation of the ZWave value
             def to_s
-                return "ZWaveValue[n:#{@_nodeId} g:#{@_genre} cc:#{@_commandClassId} i:#{@_instance} vi:#{@_valueIndex} t:#{@_type}]==#{@current_value}(#{@current_value.class})"
+                return "#{Time.now} ZWaveValue[n:#{@_nodeId} g:#{@_genre} cc:#{@_commandClassId} i:#{@_instance} vi:#{@_valueIndex} t:#{@_type}]==#{@current_value}(#{@current_value.class})"
             end
             
             # fetch all available ValueID info from OpenZWave
             def explain
-                return(%Q{
+                return(%Q{#{Time.now}
         Value Label: #{ @@transceiver.manager_send(:GetValueLabel, self)}
         Value Help:  #{ @@transceiver.manager_send(:GetValueHelp, self)}
         
