@@ -26,7 +26,7 @@
 # 
 
 
-require 'hexdump'
+require 'ansible/knx/hexdump'
 require 'socket'
 include Socket::Constants
 

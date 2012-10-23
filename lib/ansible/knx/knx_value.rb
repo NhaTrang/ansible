@@ -22,12 +22,10 @@ for more information on the LGPL, see:
 http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
 =end
 
-require 'ansible_value'
-
-require 'knx_transceiver'
-require 'knx_protocol'
-require 'knx_tools'
-require 'knx_dpt'
+require 'ansible/knx/knx_transceiver'
+require 'ansible/knx/knx_protocol'
+require 'ansible/knx/knx_tools'
+require 'ansible/knx/knx_dpt'
 
 module Ansible
     

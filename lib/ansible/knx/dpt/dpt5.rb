@@ -24,7 +24,7 @@ for more information on the LGPL, see:
 http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
 =end
 
-require 'knx_dpt_scalar'
+require 'ansible/knx/knx_dpt_scalar'
 
 module Ansible
     

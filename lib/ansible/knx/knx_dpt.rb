@@ -51,7 +51,7 @@ module Ansible
 
         #
         # load all known DPT modules
-        Dir["knx/dpt/*.rb"].each { |f| load f }
+        Dir["#{Ansible.root}/ansible/knx/dpt/*.rb"].each { |f| load f }
 
     end
     

@@ -22,7 +22,7 @@ for more information on the LGPL, see:
 http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
 =end
 
-require 'knx/dpt/canonical_1bit'
+require 'ansible/knx/dpt/canonical_1bit'
 
 module Ansible
     

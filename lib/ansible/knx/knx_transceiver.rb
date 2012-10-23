@@ -24,13 +24,10 @@ http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
 
 require 'cgi'
 
-require 'config'
-require 'transceiver'
-require 'EIBConnection'
-require 'ansible_callback'
-require 'knx_protocol'
-require 'knx_value'
-require 'knx_tools'
+require 'ansible/knx/EIBConnection'
+require 'ansible/knx/knx_protocol'
+require 'ansible/knx/knx_value'
+require 'ansible/knx/knx_tools'
 
 module Ansible
 
