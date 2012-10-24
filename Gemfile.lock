@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ansible4ozw (0.0.2)
+    ansible4ozw (0.0.7)
       bindata (~> 1.4.5)
       onstomp (~> 1.0.7)
       thrift (~> 0.9.0)
