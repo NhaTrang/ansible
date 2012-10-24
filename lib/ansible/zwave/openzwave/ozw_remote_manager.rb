@@ -9,12 +9,12 @@ module OpenZWave
     class Client
       include ::Thrift::Client
 
-      def WriteConfig(_homeId)
+      def WriteConfig(_homeId=HomeID)
         send_WriteConfig(_homeId)
         recv_WriteConfig()
       end
 
-      def send_WriteConfig(_homeId)
+      def send_WriteConfig(_homeId=HomeID)
         send_message('WriteConfig', WriteConfig_args, :_homeId => _homeId)
       end
 
@@ -23,12 +23,12 @@ module OpenZWave
         return
       end
 
-      def GetControllerNodeId(_homeId)
+      def GetControllerNodeId(_homeId=HomeID)
         send_GetControllerNodeId(_homeId)
         return recv_GetControllerNodeId()
       end
 
-      def send_GetControllerNodeId(_homeId)
+      def send_GetControllerNodeId(_homeId=HomeID)
         send_message('GetControllerNodeId', GetControllerNodeId_args, :_homeId => _homeId)
       end
 
@@ -38,12 +38,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetControllerNodeId failed: unknown result')
       end
 
-      def IsPrimaryController(_homeId)
+      def IsPrimaryController(_homeId=HomeID)
         send_IsPrimaryController(_homeId)
         return recv_IsPrimaryController()
       end
 
-      def send_IsPrimaryController(_homeId)
+      def send_IsPrimaryController(_homeId=HomeID)
         send_message('IsPrimaryController', IsPrimaryController_args, :_homeId => _homeId)
       end
 
@@ -53,12 +53,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'IsPrimaryController failed: unknown result')
       end
 
-      def IsStaticUpdateController(_homeId)
+      def IsStaticUpdateController(_homeId=HomeID)
         send_IsStaticUpdateController(_homeId)
         return recv_IsStaticUpdateController()
       end
 
-      def send_IsStaticUpdateController(_homeId)
+      def send_IsStaticUpdateController(_homeId=HomeID)
         send_message('IsStaticUpdateController', IsStaticUpdateController_args, :_homeId => _homeId)
       end
 
@@ -68,12 +68,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'IsStaticUpdateController failed: unknown result')
       end
 
-      def IsBridgeController(_homeId)
+      def IsBridgeController(_homeId=HomeID)
         send_IsBridgeController(_homeId)
         return recv_IsBridgeController()
       end
 
-      def send_IsBridgeController(_homeId)
+      def send_IsBridgeController(_homeId=HomeID)
         send_message('IsBridgeController', IsBridgeController_args, :_homeId => _homeId)
       end
 
@@ -83,12 +83,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'IsBridgeController failed: unknown result')
       end
 
-      def GetLibraryVersion(_homeId)
+      def GetLibraryVersion(_homeId=HomeID)
         send_GetLibraryVersion(_homeId)
         return recv_GetLibraryVersion()
       end
 
-      def send_GetLibraryVersion(_homeId)
+      def send_GetLibraryVersion(_homeId=HomeID)
         send_message('GetLibraryVersion', GetLibraryVersion_args, :_homeId => _homeId)
       end
 
@@ -98,12 +98,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetLibraryVersion failed: unknown result')
       end
 
-      def GetLibraryTypeName(_homeId)
+      def GetLibraryTypeName(_homeId=HomeID)
         send_GetLibraryTypeName(_homeId)
         return recv_GetLibraryTypeName()
       end
 
-      def send_GetLibraryTypeName(_homeId)
+      def send_GetLibraryTypeName(_homeId=HomeID)
         send_message('GetLibraryTypeName', GetLibraryTypeName_args, :_homeId => _homeId)
       end
 
@@ -113,12 +113,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetLibraryTypeName failed: unknown result')
       end
 
-      def GetSendQueueCount(_homeId)
+      def GetSendQueueCount(_homeId=HomeID)
         send_GetSendQueueCount(_homeId)
         return recv_GetSendQueueCount()
       end
 
-      def send_GetSendQueueCount(_homeId)
+      def send_GetSendQueueCount(_homeId=HomeID)
         send_message('GetSendQueueCount', GetSendQueueCount_args, :_homeId => _homeId)
       end
 
@@ -128,12 +128,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetSendQueueCount failed: unknown result')
       end
 
-      def LogDriverStatistics(_homeId)
+      def LogDriverStatistics(_homeId=HomeID)
         send_LogDriverStatistics(_homeId)
         recv_LogDriverStatistics()
       end
 
-      def send_LogDriverStatistics(_homeId)
+      def send_LogDriverStatistics(_homeId=HomeID)
         send_message('LogDriverStatistics', LogDriverStatistics_args, :_homeId => _homeId)
       end
 
@@ -230,12 +230,12 @@ module OpenZWave
         return
       end
 
-      def RefreshNodeInfo(_homeId, _nodeId)
-        send_RefreshNodeInfo(_homeId, _nodeId)
+      def RefreshNodeInfo(_nodeId, _homeId=HomeID)
+        send_RefreshNodeInfo(_nodeId, _homeId)
         return recv_RefreshNodeInfo()
       end
 
-      def send_RefreshNodeInfo(_homeId, _nodeId)
+      def send_RefreshNodeInfo(_nodeId, _homeId=HomeID)
         send_message('RefreshNodeInfo', RefreshNodeInfo_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -245,12 +245,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'RefreshNodeInfo failed: unknown result')
       end
 
-      def RequestNodeState(_homeId, _nodeId)
-        send_RequestNodeState(_homeId, _nodeId)
+      def RequestNodeState(_nodeId, _homeId=HomeID)
+        send_RequestNodeState(_nodeId, _homeId=HomeID)
         return recv_RequestNodeState()
       end
 
-      def send_RequestNodeState(_homeId, _nodeId)
+      def send_RequestNodeState(_nodeId, _homeId=HomeID)
         send_message('RequestNodeState', RequestNodeState_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -260,12 +260,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'RequestNodeState failed: unknown result')
       end
 
-      def RequestNodeDynamic(_homeId, _nodeId)
-        send_RequestNodeDynamic(_homeId, _nodeId)
+      def RequestNodeDynamic(_nodeId, _homeId=HomeID)
+        send_RequestNodeDynamic(_nodeId, _homeId)
         return recv_RequestNodeDynamic()
       end
 
-      def send_RequestNodeDynamic(_homeId, _nodeId)
+      def send_RequestNodeDynamic(_nodeId, _homeId=HomeID)
         send_message('RequestNodeDynamic', RequestNodeDynamic_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -275,12 +275,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'RequestNodeDynamic failed: unknown result')
       end
 
-      def IsNodeListeningDevice(_homeId, _nodeId)
-        send_IsNodeListeningDevice(_homeId, _nodeId)
+      def IsNodeListeningDevice(_nodeId, _homeId=HomeID)
+        send_IsNodeListeningDevice(_nodeId, _homeId)
         return recv_IsNodeListeningDevice()
       end
 
-      def send_IsNodeListeningDevice(_homeId, _nodeId)
+      def send_IsNodeListeningDevice(_nodeId, _homeId=HomeID)
         send_message('IsNodeListeningDevice', IsNodeListeningDevice_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -290,12 +290,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'IsNodeListeningDevice failed: unknown result')
       end
 
-      def IsNodeFrequentListeningDevice(_homeId, _nodeId)
-        send_IsNodeFrequentListeningDevice(_homeId, _nodeId)
+      def IsNodeFrequentListeningDevice(_nodeId, _homeId=HomeID)
+        send_IsNodeFrequentListeningDevice(_nodeId, _homeId)
         return recv_IsNodeFrequentListeningDevice()
       end
 
-      def send_IsNodeFrequentListeningDevice(_homeId, _nodeId)
+      def send_IsNodeFrequentListeningDevice(_nodeId, _homeId=HomeID)
         send_message('IsNodeFrequentListeningDevice', IsNodeFrequentListeningDevice_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -305,12 +305,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'IsNodeFrequentListeningDevice failed: unknown result')
       end
 
-      def IsNodeBeamingDevice(_homeId, _nodeId)
-        send_IsNodeBeamingDevice(_homeId, _nodeId)
+      def IsNodeBeamingDevice(_nodeId, _homeId=HomeID)
+        send_IsNodeBeamingDevice(_nodeId, _homeId)
         return recv_IsNodeBeamingDevice()
       end
 
-      def send_IsNodeBeamingDevice(_homeId, _nodeId)
+      def send_IsNodeBeamingDevice(_nodeId, _homeId=HomeID)
         send_message('IsNodeBeamingDevice', IsNodeBeamingDevice_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -320,12 +320,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'IsNodeBeamingDevice failed: unknown result')
       end
 
-      def IsNodeRoutingDevice(_homeId, _nodeId)
-        send_IsNodeRoutingDevice(_homeId, _nodeId)
+      def IsNodeRoutingDevice(_nodeId, _homeId=HomeID)
+        send_IsNodeRoutingDevice(_nodeId, _homeId)
         return recv_IsNodeRoutingDevice()
       end
 
-      def send_IsNodeRoutingDevice(_homeId, _nodeId)
+      def send_IsNodeRoutingDevice(_nodeId, _homeId=HomeID)
         send_message('IsNodeRoutingDevice', IsNodeRoutingDevice_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -335,12 +335,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'IsNodeRoutingDevice failed: unknown result')
       end
 
-      def IsNodeSecurityDevice(_homeId, _nodeId)
-        send_IsNodeSecurityDevice(_homeId, _nodeId)
+      def IsNodeSecurityDevice(_nodeId, _homeId=HomeID)
+        send_IsNodeSecurityDevice(_nodeId, _homeId)
         return recv_IsNodeSecurityDevice()
       end
 
-      def send_IsNodeSecurityDevice(_homeId, _nodeId)
+      def send_IsNodeSecurityDevice(_nodeId, _homeId=HomeID)
         send_message('IsNodeSecurityDevice', IsNodeSecurityDevice_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -350,12 +350,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'IsNodeSecurityDevice failed: unknown result')
       end
 
-      def GetNodeMaxBaudRate(_homeId, _nodeId)
-        send_GetNodeMaxBaudRate(_homeId, _nodeId)
+      def GetNodeMaxBaudRate(_nodeId, _homeId=HomeID)
+        send_GetNodeMaxBaudRate(_nodeId, _homeId)
         return recv_GetNodeMaxBaudRate()
       end
 
-      def send_GetNodeMaxBaudRate(_homeId, _nodeId)
+      def send_GetNodeMaxBaudRate(_nodeId, _homeId=HomeID)
         send_message('GetNodeMaxBaudRate', GetNodeMaxBaudRate_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -365,12 +365,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetNodeMaxBaudRate failed: unknown result')
       end
 
-      def GetNodeVersion(_homeId, _nodeId)
-        send_GetNodeVersion(_homeId, _nodeId)
+      def GetNodeVersion(_nodeId, _homeId=HomeID)
+        send_GetNodeVersion(_nodeId, _homeId)
         return recv_GetNodeVersion()
       end
 
-      def send_GetNodeVersion(_homeId, _nodeId)
+      def send_GetNodeVersion(_nodeId, _homeId=HomeID)
         send_message('GetNodeVersion', GetNodeVersion_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -380,12 +380,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetNodeVersion failed: unknown result')
       end
 
-      def GetNodeSecurity(_homeId, _nodeId)
-        send_GetNodeSecurity(_homeId, _nodeId)
+      def GetNodeSecurity(_nodeId, _homeId=HomeID)
+        send_GetNodeSecurity(_nodeId, _homeId)
         return recv_GetNodeSecurity()
       end
 
-      def send_GetNodeSecurity(_homeId, _nodeId)
+      def send_GetNodeSecurity(_nodeId, _homeId=HomeID)
         send_message('GetNodeSecurity', GetNodeSecurity_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -395,12 +395,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetNodeSecurity failed: unknown result')
       end
 
-      def GetNodeBasic(_homeId, _nodeId)
-        send_GetNodeBasic(_homeId, _nodeId)
+      def GetNodeBasic(_nodeId, _homeId=HomeID)
+        send_GetNodeBasic(_nodeId, _homeId)
         return recv_GetNodeBasic()
       end
 
-      def send_GetNodeBasic(_homeId, _nodeId)
+      def send_GetNodeBasic(_nodeId, _homeId=HomeID)
         send_message('GetNodeBasic', GetNodeBasic_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -410,12 +410,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetNodeBasic failed: unknown result')
       end
 
-      def GetNodeGeneric(_homeId, _nodeId)
-        send_GetNodeGeneric(_homeId, _nodeId)
+      def GetNodeGeneric(_nodeId, _homeId=HomeID)
+        send_GetNodeGeneric(_nodeId, _homeId)
         return recv_GetNodeGeneric()
       end
 
-      def send_GetNodeGeneric(_homeId, _nodeId)
+      def send_GetNodeGeneric(_nodeId, _homeId=HomeID)
         send_message('GetNodeGeneric', GetNodeGeneric_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -425,12 +425,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetNodeGeneric failed: unknown result')
       end
 
-      def GetNodeSpecific(_homeId, _nodeId)
-        send_GetNodeSpecific(_homeId, _nodeId)
+      def GetNodeSpecific(_nodeId, _homeId=HomeID)
+        send_GetNodeSpecific(_nodeId, _homeId)
         return recv_GetNodeSpecific()
       end
 
-      def send_GetNodeSpecific(_homeId, _nodeId)
+      def send_GetNodeSpecific(_nodeId, _homeId=HomeID)
         send_message('GetNodeSpecific', GetNodeSpecific_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -440,12 +440,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetNodeSpecific failed: unknown result')
       end
 
-      def GetNodeType(_homeId, _nodeId)
-        send_GetNodeType(_homeId, _nodeId)
+      def GetNodeType(_nodeId, _homeId=HomeID)
+        send_GetNodeType(_nodeId, _homeId)
         return recv_GetNodeType()
       end
 
-      def send_GetNodeType(_homeId, _nodeId)
+      def send_GetNodeType(_nodeId, _homeId=HomeID)
         send_message('GetNodeType', GetNodeType_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -455,12 +455,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetNodeType failed: unknown result')
       end
 
-      def GetNodeNeighbors(_homeId, _nodeId)
-        send_GetNodeNeighbors(_homeId, _nodeId)
+      def GetNodeNeighbors(_nodeId, _homeId=HomeID)
+        send_GetNodeNeighbors(_nodeId, _homeId)
         return recv_GetNodeNeighbors()
       end
 
-      def send_GetNodeNeighbors(_homeId, _nodeId)
+      def send_GetNodeNeighbors(_nodeId, _homeId=HomeID)
         send_message('GetNodeNeighbors', GetNodeNeighbors_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -470,12 +470,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetNodeNeighbors failed: unknown result')
       end
 
-      def GetNodeManufacturerName(_homeId, _nodeId)
-        send_GetNodeManufacturerName(_homeId, _nodeId)
+      def GetNodeManufacturerName(_nodeId, _homeId=HomeID)
+        send_GetNodeManufacturerName(_nodeId, _homeId)
         return recv_GetNodeManufacturerName()
       end
 
-      def send_GetNodeManufacturerName(_homeId, _nodeId)
+      def send_GetNodeManufacturerName(_nodeId, _homeId=HomeID)
         send_message('GetNodeManufacturerName', GetNodeManufacturerName_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -485,12 +485,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetNodeManufacturerName failed: unknown result')
       end
 
-      def GetNodeProductName(_homeId, _nodeId)
-        send_GetNodeProductName(_homeId, _nodeId)
+      def GetNodeProductName(_nodeId, _homeId=HomeID)
+        send_GetNodeProductName(_nodeId, _homeId)
         return recv_GetNodeProductName()
       end
 
-      def send_GetNodeProductName(_homeId, _nodeId)
+      def send_GetNodeProductName(_nodeId, _homeId=HomeID)
         send_message('GetNodeProductName', GetNodeProductName_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -500,12 +500,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetNodeProductName failed: unknown result')
       end
 
-      def GetNodeName(_homeId, _nodeId)
-        send_GetNodeName(_homeId, _nodeId)
+      def GetNodeName(_nodeId, _homeId=HomeID)
+        send_GetNodeName(_nodeId, _homeId)
         return recv_GetNodeName()
       end
 
-      def send_GetNodeName(_homeId, _nodeId)
+      def send_GetNodeName(_nodeId, _homeId=HomeID)
         send_message('GetNodeName', GetNodeName_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -515,12 +515,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetNodeName failed: unknown result')
       end
 
-      def GetNodeLocation(_homeId, _nodeId)
-        send_GetNodeLocation(_homeId, _nodeId)
+      def GetNodeLocation(_nodeId, _homeId=HomeID)
+        send_GetNodeLocation(_nodeId, _homeId)
         return recv_GetNodeLocation()
       end
 
-      def send_GetNodeLocation(_homeId, _nodeId)
+      def send_GetNodeLocation(_nodeId, _homeId=HomeID)
         send_message('GetNodeLocation', GetNodeLocation_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -530,12 +530,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetNodeLocation failed: unknown result')
       end
 
-      def GetNodeManufacturerId(_homeId, _nodeId)
-        send_GetNodeManufacturerId(_homeId, _nodeId)
+      def GetNodeManufacturerId(_nodeId, _homeId=HomeID)
+        send_GetNodeManufacturerId(_nodeId, _homeId)
         return recv_GetNodeManufacturerId()
       end
 
-      def send_GetNodeManufacturerId(_homeId, _nodeId)
+      def send_GetNodeManufacturerId(_nodeId, _homeId=HomeID)
         send_message('GetNodeManufacturerId', GetNodeManufacturerId_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -545,12 +545,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetNodeManufacturerId failed: unknown result')
       end
 
-      def GetNodeProductType(_homeId, _nodeId)
-        send_GetNodeProductType(_homeId, _nodeId)
+      def GetNodeProductType(_nodeId, _homeId=HomeID)
+        send_GetNodeProductType(_nodeId, _homeId)
         return recv_GetNodeProductType()
       end
 
-      def send_GetNodeProductType(_homeId, _nodeId)
+      def send_GetNodeProductType(_nodeId, _homeId=HomeID)
         send_message('GetNodeProductType', GetNodeProductType_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -560,12 +560,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetNodeProductType failed: unknown result')
       end
 
-      def GetNodeProductId(_homeId, _nodeId)
-        send_GetNodeProductId(_homeId, _nodeId)
+      def GetNodeProductId(_nodeId, _homeId=HomeID)
+        send_GetNodeProductId(_nodeId, _homeId)
         return recv_GetNodeProductId()
       end
 
-      def send_GetNodeProductId(_homeId, _nodeId)
+      def send_GetNodeProductId(_nodeId, _homeId=HomeID)
         send_message('GetNodeProductId', GetNodeProductId_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -575,12 +575,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetNodeProductId failed: unknown result')
       end
 
-      def SetNodeManufacturerName(_homeId, _nodeId, _manufacturerName)
-        send_SetNodeManufacturerName(_homeId, _nodeId, _manufacturerName)
+      def SetNodeManufacturerName(_nodeId, _manufacturerName, _homeId=HomeID)
+        send_SetNodeManufacturerName(_nodeId, _manufacturerName, _homeId)
         recv_SetNodeManufacturerName()
       end
 
-      def send_SetNodeManufacturerName(_homeId, _nodeId, _manufacturerName)
+      def send_SetNodeManufacturerName(_nodeId, _manufacturerName, _homeId=HomeID)
         send_message('SetNodeManufacturerName', SetNodeManufacturerName_args, :_homeId => _homeId, :_nodeId => _nodeId, :_manufacturerName => _manufacturerName)
       end
 
@@ -589,12 +589,12 @@ module OpenZWave
         return
       end
 
-      def SetNodeProductName(_homeId, _nodeId, _productName)
-        send_SetNodeProductName(_homeId, _nodeId, _productName)
+      def SetNodeProductName(_nodeId, _productName, _homeId=HomeID)
+        send_SetNodeProductName(_nodeId, _productName, _homeId)
         recv_SetNodeProductName()
       end
 
-      def send_SetNodeProductName(_homeId, _nodeId, _productName)
+      def send_SetNodeProductName(_nodeId, _productName, _homeId=HomeID)
         send_message('SetNodeProductName', SetNodeProductName_args, :_homeId => _homeId, :_nodeId => _nodeId, :_productName => _productName)
       end
 
@@ -603,12 +603,12 @@ module OpenZWave
         return
       end
 
-      def SetNodeName(_homeId, _nodeId, _nodeName)
-        send_SetNodeName(_homeId, _nodeId, _nodeName)
+      def SetNodeName(_nodeId, _nodeName, _homeId=HomeID)
+        send_SetNodeName(_nodeId, _nodeName, _homeId)
         recv_SetNodeName()
       end
 
-      def send_SetNodeName(_homeId, _nodeId, _nodeName)
+      def send_SetNodeName(_nodeId, _nodeName, _homeId=HomeID)
         send_message('SetNodeName', SetNodeName_args, :_homeId => _homeId, :_nodeId => _nodeId, :_nodeName => _nodeName)
       end
 
@@ -617,12 +617,12 @@ module OpenZWave
         return
       end
 
-      def SetNodeLocation(_homeId, _nodeId, _location)
-        send_SetNodeLocation(_homeId, _nodeId, _location)
+      def SetNodeLocation(_nodeId, _location, _homeId=HomeID)
+        send_SetNodeLocation(_nodeId, _location, _homeId)
         recv_SetNodeLocation()
       end
 
-      def send_SetNodeLocation(_homeId, _nodeId, _location)
+      def send_SetNodeLocation(_nodeId, _location, _homeId=HomeID)
         send_message('SetNodeLocation', SetNodeLocation_args, :_homeId => _homeId, :_nodeId => _nodeId, :_location => _location)
       end
 
@@ -631,12 +631,12 @@ module OpenZWave
         return
       end
 
-      def SetNodeOn(_homeId, _nodeId)
-        send_SetNodeOn(_homeId, _nodeId)
+      def SetNodeOn(_nodeId, _homeId=HomeID)
+        send_SetNodeOn(_nodeId, _homeId)
         recv_SetNodeOn()
       end
 
-      def send_SetNodeOn(_homeId, _nodeId)
+      def send_SetNodeOn(_nodeId, _homeId=HomeID)
         send_message('SetNodeOn', SetNodeOn_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -645,12 +645,12 @@ module OpenZWave
         return
       end
 
-      def SetNodeOff(_homeId, _nodeId)
-        send_SetNodeOff(_homeId, _nodeId)
+      def SetNodeOff(_nodeId, _homeId=HomeID)
+        send_SetNodeOff(_nodeId, _homeId)
         recv_SetNodeOff()
       end
 
-      def send_SetNodeOff(_homeId, _nodeId)
+      def send_SetNodeOff(_nodeId, _homeId=HomeID)
         send_message('SetNodeOff', SetNodeOff_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -659,12 +659,12 @@ module OpenZWave
         return
       end
 
-      def SetNodeLevel(_homeId, _nodeId, _level)
-        send_SetNodeLevel(_homeId, _nodeId, _level)
+      def SetNodeLevel(_nodeId, _level, _homeId=HomeID)
+        send_SetNodeLevel(_nodeId, _level, _homeId)
         recv_SetNodeLevel()
       end
 
-      def send_SetNodeLevel(_homeId, _nodeId, _level)
+      def send_SetNodeLevel(_nodeId, _level, _homeId=HomeID)
         send_message('SetNodeLevel', SetNodeLevel_args, :_homeId => _homeId, :_nodeId => _nodeId, :_level => _level)
       end
 
@@ -673,12 +673,12 @@ module OpenZWave
         return
       end
 
-      def IsNodeInfoReceived(_homeId, _nodeId)
-        send_IsNodeInfoReceived(_homeId, _nodeId)
+      def IsNodeInfoReceived(_nodeId, _homeId=HomeID)
+        send_IsNodeInfoReceived(_nodeId, _homeId)
         return recv_IsNodeInfoReceived()
       end
 
-      def send_IsNodeInfoReceived(_homeId, _nodeId)
+      def send_IsNodeInfoReceived(_nodeId, _homeId=HomeID)
         send_message('IsNodeInfoReceived', IsNodeInfoReceived_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -688,12 +688,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'IsNodeInfoReceived failed: unknown result')
       end
 
-      def GetNodeClassInformation(_homeId, _nodeId, _commandClassId)
-        send_GetNodeClassInformation(_homeId, _nodeId, _commandClassId)
+      def GetNodeClassInformation(_nodeId, _commandClassId, _homeId=HomeID)
+        send_GetNodeClassInformation(_nodeId, _commandClassId, _homeId)
         return recv_GetNodeClassInformation()
       end
 
-      def send_GetNodeClassInformation(_homeId, _nodeId, _commandClassId)
+      def send_GetNodeClassInformation(_nodeId, _commandClassId, _homeId=HomeID)
         send_message('GetNodeClassInformation', GetNodeClassInformation_args, :_homeId => _homeId, :_nodeId => _nodeId, :_commandClassId => _commandClassId)
       end
 
@@ -1268,12 +1268,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetSwitchPoint failed: unknown result')
       end
 
-      def SwitchAllOn(_homeId)
+      def SwitchAllOn(_homeId=HomeID)
         send_SwitchAllOn(_homeId)
         recv_SwitchAllOn()
       end
 
-      def send_SwitchAllOn(_homeId)
+      def send_SwitchAllOn(_homeId=HomeID)
         send_message('SwitchAllOn', SwitchAllOn_args, :_homeId => _homeId)
       end
 
@@ -1282,12 +1282,12 @@ module OpenZWave
         return
       end
 
-      def SwitchAllOff(_homeId)
+      def SwitchAllOff(_homeId=HomeID)
         send_SwitchAllOff(_homeId)
         recv_SwitchAllOff()
       end
 
-      def send_SwitchAllOff(_homeId)
+      def send_SwitchAllOff(_homeId=HomeID)
         send_message('SwitchAllOff', SwitchAllOff_args, :_homeId => _homeId)
       end
 
@@ -1296,12 +1296,12 @@ module OpenZWave
         return
       end
 
-      def SetConfigParam(_homeId, _nodeId, _param, _value, _size)
-        send_SetConfigParam(_homeId, _nodeId, _param, _value, _size)
+      def SetConfigParam(_nodeId, _param, _value, _size, _homeId=HomeID)
+        send_SetConfigParam(_nodeId, _param, _value, _size, _homeId)
         return recv_SetConfigParam()
       end
 
-      def send_SetConfigParam(_homeId, _nodeId, _param, _value, _size)
+      def send_SetConfigParam(_nodeId, _param, _value, _size, _homeId=HomeID)
         send_message('SetConfigParam', SetConfigParam_args, :_homeId => _homeId, :_nodeId => _nodeId, :_param => _param, :_value => _value, :_size => _size)
       end
 
@@ -1311,12 +1311,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'SetConfigParam failed: unknown result')
       end
 
-      def RequestConfigParam(_homeId, _nodeId, _param)
-        send_RequestConfigParam(_homeId, _nodeId, _param)
+      def RequestConfigParam(_nodeId, _param, _homeId=HomeID)
+        send_RequestConfigParam(_nodeId, _param, _homeId)
         recv_RequestConfigParam()
       end
 
-      def send_RequestConfigParam(_homeId, _nodeId, _param)
+      def send_RequestConfigParam(_nodeId, _param, _homeId=HomeID)
         send_message('RequestConfigParam', RequestConfigParam_args, :_homeId => _homeId, :_nodeId => _nodeId, :_param => _param)
       end
 
@@ -1325,12 +1325,12 @@ module OpenZWave
         return
       end
 
-      def RequestAllConfigParams(_homeId, _nodeId)
-        send_RequestAllConfigParams(_homeId, _nodeId)
+      def RequestAllConfigParams(_nodeId, _homeId=HomeID)
+        send_RequestAllConfigParams(_nodeId, _homeId)
         recv_RequestAllConfigParams()
       end
 
-      def send_RequestAllConfigParams(_homeId, _nodeId)
+      def send_RequestAllConfigParams(_nodeId, _homeId=HomeID)
         send_message('RequestAllConfigParams', RequestAllConfigParams_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -1339,12 +1339,12 @@ module OpenZWave
         return
       end
 
-      def GetNumGroups(_homeId, _nodeId)
-        send_GetNumGroups(_homeId, _nodeId)
+      def GetNumGroups(_nodeId, _homeId=HomeID)
+        send_GetNumGroups(_nodeId, _homeId)
         return recv_GetNumGroups()
       end
 
-      def send_GetNumGroups(_homeId, _nodeId)
+      def send_GetNumGroups(_nodeId, _homeId=HomeID)
         send_message('GetNumGroups', GetNumGroups_args, :_homeId => _homeId, :_nodeId => _nodeId)
       end
 
@@ -1354,12 +1354,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetNumGroups failed: unknown result')
       end
 
-      def GetAssociations(_homeId, _nodeId, _groupIdx)
-        send_GetAssociations(_homeId, _nodeId, _groupIdx)
+      def GetAssociations(_nodeId, _groupIdx, _homeId=HomeID)
+        send_GetAssociations(_nodeId, _groupIdx, _homeId)
         return recv_GetAssociations()
       end
 
-      def send_GetAssociations(_homeId, _nodeId, _groupIdx)
+      def send_GetAssociations(_nodeId, _groupIdx, _homeId=HomeID)
         send_message('GetAssociations', GetAssociations_args, :_homeId => _homeId, :_nodeId => _nodeId, :_groupIdx => _groupIdx)
       end
 
@@ -1369,12 +1369,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetAssociations failed: unknown result')
       end
 
-      def GetMaxAssociations(_homeId, _nodeId, _groupIdx)
-        send_GetMaxAssociations(_homeId, _nodeId, _groupIdx)
+      def GetMaxAssociations(_nodeId, _groupIdx, _homeId=HomeID)
+        send_GetMaxAssociations(_nodeId, _groupIdx, _homeId)
         return recv_GetMaxAssociations()
       end
 
-      def send_GetMaxAssociations(_homeId, _nodeId, _groupIdx)
+      def send_GetMaxAssociations(_nodeId, _groupIdx, _homeId=HomeID)
         send_message('GetMaxAssociations', GetMaxAssociations_args, :_homeId => _homeId, :_nodeId => _nodeId, :_groupIdx => _groupIdx)
       end
 
@@ -1384,12 +1384,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetMaxAssociations failed: unknown result')
       end
 
-      def GetGroupLabel(_homeId, _nodeId, _groupIdx)
-        send_GetGroupLabel(_homeId, _nodeId, _groupIdx)
+      def GetGroupLabel(_nodeId, _groupIdx, _homeId=HomeID)
+        send_GetGroupLabel(_nodeId, _groupIdx, _homeId)
         return recv_GetGroupLabel()
       end
 
-      def send_GetGroupLabel(_homeId, _nodeId, _groupIdx)
+      def send_GetGroupLabel(_nodeId, _groupIdx, _homeId=HomeID)
         send_message('GetGroupLabel', GetGroupLabel_args, :_homeId => _homeId, :_nodeId => _nodeId, :_groupIdx => _groupIdx)
       end
 
@@ -1399,12 +1399,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'GetGroupLabel failed: unknown result')
       end
 
-      def AddAssociation(_homeId, _nodeId, _groupIdx, _targetNodeId)
-        send_AddAssociation(_homeId, _nodeId, _groupIdx, _targetNodeId)
+      def AddAssociation(_nodeId, _groupIdx, _targetNodeId, _homeId=HomeID)
+        send_AddAssociation(_nodeId, _groupIdx, _targetNodeId, _homeId)
         recv_AddAssociation()
       end
 
-      def send_AddAssociation(_homeId, _nodeId, _groupIdx, _targetNodeId)
+      def send_AddAssociation(_nodeId, _groupIdx, _targetNodeId, _homeId=HomeID)
         send_message('AddAssociation', AddAssociation_args, :_homeId => _homeId, :_nodeId => _nodeId, :_groupIdx => _groupIdx, :_targetNodeId => _targetNodeId)
       end
 
@@ -1413,12 +1413,12 @@ module OpenZWave
         return
       end
 
-      def RemoveAssociation(_homeId, _nodeId, _groupIdx, _targetNodeId)
-        send_RemoveAssociation(_homeId, _nodeId, _groupIdx, _targetNodeId)
+      def RemoveAssociation(_nodeId, _groupIdx, _targetNodeId, _homeId=HomeID)
+        send_RemoveAssociation(_nodeId, _groupIdx, _targetNodeId, _homeId)
         recv_RemoveAssociation()
       end
 
-      def send_RemoveAssociation(_homeId, _nodeId, _groupIdx, _targetNodeId)
+      def send_RemoveAssociation(_nodeId, _groupIdx, _targetNodeId, _homeId=HomeID)
         send_message('RemoveAssociation', RemoveAssociation_args, :_homeId => _homeId, :_nodeId => _nodeId, :_groupIdx => _groupIdx, :_targetNodeId => _targetNodeId)
       end
 
@@ -1427,12 +1427,12 @@ module OpenZWave
         return
       end
 
-      def ResetController(_homeId)
+      def ResetController(_homeId=HomeID)
         send_ResetController(_homeId)
         recv_ResetController()
       end
 
-      def send_ResetController(_homeId)
+      def send_ResetController(_homeId=HomeID)
         send_message('ResetController', ResetController_args, :_homeId => _homeId)
       end
 
@@ -1441,12 +1441,12 @@ module OpenZWave
         return
       end
 
-      def SoftReset(_homeId)
+      def SoftReset(_homeId=HomeID)
         send_SoftReset(_homeId)
         recv_SoftReset()
       end
 
-      def send_SoftReset(_homeId)
+      def send_SoftReset(_homeId=HomeID)
         send_message('SoftReset', SoftReset_args, :_homeId => _homeId)
       end
 
@@ -1455,12 +1455,12 @@ module OpenZWave
         return
       end
 
-      def BeginControllerCommand(_homeId, _command, _highPower, _nodeId, _arg)
-        send_BeginControllerCommand(_homeId, _command, _highPower, _nodeId, _arg)
+      def BeginControllerCommand(_command, _highPower, _nodeId, _arg, _homeId=HomeID)
+        send_BeginControllerCommand(_command, _highPower, _nodeId, _arg, _homeId)
         return recv_BeginControllerCommand()
       end
 
-      def send_BeginControllerCommand(_homeId, _command, _highPower, _nodeId, _arg)
+      def send_BeginControllerCommand(_command, _highPower, _nodeId, _arg, _homeId=HomeID)
         send_message('BeginControllerCommand', BeginControllerCommand_args, :_homeId => _homeId, :_command => _command, :_highPower => _highPower, :_nodeId => _nodeId, :_arg => _arg)
       end
 
@@ -1470,12 +1470,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'BeginControllerCommand failed: unknown result')
       end
 
-      def CancelControllerCommand(_homeId)
+      def CancelControllerCommand(_homeId=HomeID)
         send_CancelControllerCommand(_homeId)
         return recv_CancelControllerCommand()
       end
 
-      def send_CancelControllerCommand(_homeId)
+      def send_CancelControllerCommand(_homeId=HomeID)
         send_message('CancelControllerCommand', CancelControllerCommand_args, :_homeId => _homeId)
       end
 
@@ -1994,12 +1994,12 @@ module OpenZWave
         raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'ActivateScene failed: unknown result')
       end
 
-      def GetDriverStatistics(_homeId)
+      def GetDriverStatistics(_homeId=HomeID)
         send_GetDriverStatistics(_homeId)
         return recv_GetDriverStatistics()
       end
 
-      def send_GetDriverStatistics(_homeId)
+      def send_GetDriverStatistics(_homeId=HomeID)
         send_message('GetDriverStatistics', GetDriverStatistics_args, :_homeId => _homeId)
       end
 
