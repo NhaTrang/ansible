@@ -149,7 +149,7 @@ module Ansible
                 result = nil
                 @thriftMutex.synchronize {
                     begin
-                        result = manager.method(meth).call(*args)
+                        result = @manager.method(meth).call(*args)
                     rescue Thrift::TransportException => e
                         @thrift_ok = false
                         puts "Thrift transport exception, in method #{meth.inspect}"
@@ -230,7 +230,13 @@ module Ansible
             # NOTIFICATIONS
             #
             
-            # a value has been added to the Z-Wave network
+            # * ValueAdded
+            # 
+            # [potentially sent]  Sent when a new value has been associated with the node.
+            # At the time this notification is sent, the new value may or may not
+            # have “live” data associated with it. It may be populated, but it may
+            # alternatively just be a placeholder for a value that has not been read
+            # at the time the notification is sent.
             def notification_ValueAdded(nodeId, byte, value)
                     #@@Values[homeID].push(value)
             end

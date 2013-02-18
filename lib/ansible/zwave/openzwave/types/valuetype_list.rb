@@ -32,13 +32,14 @@ module Ansible
             
             # define type-specific OZW::Manager API calls
             def read_operation
-                raise 'FIXME'
-                return :GetValueListItems
+                raise 'FIXME?'
+                return :GetValueListSelection_String
+#                return :GetValueListItems
             end
             
             def write_operation
-                raise 'FIXME'
-                return :SetValueListSelection
+                raise 'FIXME?'
+                return :SetValueListSelection_String
             end
             
             #

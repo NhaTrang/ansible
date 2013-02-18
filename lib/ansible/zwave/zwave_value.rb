@@ -61,7 +61,7 @@ module Ansible
             #
             # ----- INSTANCE VARIABLES & METHODS
             #
-            
+             
             attr_reader :valueId
             
             # equality checking
@@ -164,18 +164,18 @@ module Ansible
             
             # fetch all available ValueID info from OpenZWave
             def explain
-                return(%Q{#{Time.now}
-        Value Label: #{ @@transceiver.manager_send(:GetValueLabel, self)}
-        Value Help:  #{ @@transceiver.manager_send(:GetValueHelp, self)}
+                explanation = "#{Time.now}
+                  Value Label: #{ @@transceiver.manager_send(:GetValueLabel, self)}
+                  Value Help:  #{ @@transceiver.manager_send(:GetValueHelp, self)}
         
-        Value Units: #{ @@transceiver.manager_send(:GetValueUnits, self)}
-        Value Min:   #{ @@transceiver.manager_send(:GetValueMin, self)}
-        Value Max:   #{ @@transceiver.manager_send(:GetValueMax, self)}
+                  Value Units: #{ @@transceiver.manager_send(:GetValueUnits, self)}
+                  Value Min:   #{ @@transceiver.manager_send(:GetValueMin, self)}
+                  Value Max:   #{ @@transceiver.manager_send(:GetValueMax, self)}
         
-        Value read-only?  #{ @@transceiver.manager_send(:IsValueReadOnly, self)}
-        Value write-only? #{ @@transceiver.manager_send(:IsValueWriteOnly, self)}
-        Value set?        #{ @@transceiver.manager_send(:IsValueSet, self)}
-})
+                  Value read-only?  #{ @@transceiver.manager_send(:IsValueReadOnly, self)}
+                  Value write-only? #{ @@transceiver.manager_send(:IsValueWriteOnly, self)}
+                  Value set?        #{ @@transceiver.manager_send(:IsValueSet, self)}"
+              return explanation
             end
             
         end # class
